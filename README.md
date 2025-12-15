@@ -17,7 +17,6 @@ This repository contains code and configurations for projects based on the Ardui
 - [Functions](#functions)
 - [Arduino Mega 2560 Pinout](#arduino-mega-2560-pinout)
 - [PlatformIO Configuration](#platformio-configuration)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Introduction
@@ -207,3 +206,31 @@ description = Sensors
 
     *   `-std=gnu++17`:  Specifies that the C++17 standard should be used for compilation. C++17 provides more modern language features.
     *   `-DAVR8_UART_NUMBER=3`: Defines a macro that might be used in the code to specify
+
+    ### License
+    
+    This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+    
+    ```
+    MIT License
+    
+    Copyright (c) [Año] [Nombre del titular del copyright]
+    
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+    
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+    ```
