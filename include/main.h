@@ -10,7 +10,7 @@
 #include "system/pinout/pinout.h"                                   // Pinout definitions
 
 // Firmware metadata =============================================================================================================================
-#define FIRMWARE_VERSION                 "1.0.A"                                    // Firmware version
+#define FIRMWARE_VERSION                 "1.0.B"                                    // Firmware version
 #define FIRMWARE_NAME                    "ArduinoMega2560"                          // Firmware name
 #define FIRMWARE_DATE                    "17/12/2025"                               // Firmware compilation date
 #define FIRMWARE_AUTHOR                  "Eduardo Jimenez Serrato"                  // Firmware author
