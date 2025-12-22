@@ -19,7 +19,7 @@ struct configuracionMain {
     uint8_t diagnosePWM          : 1; // Bit 4
     uint8_t diagnoseUART         : 1; // Bit 5
     uint8_t diagnoseEEPROM       : 1; // Bit 6
-    uint8_t reserved             : 1; // Bit 7 (MSB)
+    uint8_t version              : 1; // Bit 7 (MSB)
 
 
 };

@@ -8,11 +8,11 @@
  * 📌 Structure to represent pins with symbolic name and physical number
  */
 struct PinInfo {
-    const char* name;  // Symbolic name of the pin
-    int number;        // Physical pin number on the board
-
+    const char* name;       // Symbolic name of the pin
+    int number;             // Physical pin number on the board
+    const char* family;     // Pin family or category (e.g., "PWM", "GPIO")
     // Constructor constexpr para permitir uso en evaluaciones de tiempo de compilación
-    constexpr PinInfo(const char* n, int num) : name(n), number(num) {}
+    constexpr PinInfo(const char* n, int num, const char* fam) : name(n), number(num), family(fam) {}
 
 };
 
@@ -25,129 +25,129 @@ namespace Pins {
      * 🔗 UART: Asynchronous serial communication
      */
   inline constexpr PinInfo UART_RX[] = {
-        {"PIN_RX0", 0},    // RX0: UART0 via USB (Serial.begin)
-        {"PIN_RX1", 19},   // RX1: UART1 + INT4 interrupt (external communication)
-        {"PIN_RX2", 17},   // RX2: UART2 (additional devices)
-        {"PIN_RX3", 15}    // RX3: UART3 (extended use on Mega)
+        {"PIN_RX0", 0,  "UART_RX"},    // RX0: UART0 via USB (Serial.begin)
+        {"PIN_RX1", 19, "UART_RX"},    // RX1: UART1 + INT4 interrupt (external communication)
+        {"PIN_RX2", 17, "UART_RX"},    // RX2: UART2 (additional devices)
+        {"PIN_RX3", 15, "UART_RX"},    // RX3: UART3 (extended use on Mega)
     };
 
 
     inline constexpr PinInfo UART_TX[] = {
-        {"PIN_TX0", 1},    // TX0: UART0 via USB (Serial.print)
-        {"PIN_TX1", 18},   // TX1: UART1 + INT5 interrupt
-        {"PIN_TX2", 16},   // TX2: UART2
-        {"PIN_TX3", 14}    // TX3: UART3
+        {"PIN_TX0", 1,  "UART_TX"},    // TX0: UART0 via USB (Serial.print)
+        {"PIN_TX1", 18, "UART_TX"},    // TX1: UART1 + INT5 interrupt
+        {"PIN_TX2", 16, "UART_TX"},    // TX2: UART2
+        {"PIN_TX3", 14, "UART_TX"},    // TX3: UART3
     };
 
     /*
      * 🔄 SPI: Synchronous master-slave communication
      */
     inline constexpr PinInfo SPI[] = {
-        {"PIN_MISO", 50},  // MISO: receives data from slave
-        {"PIN_MOSI", 51},  // MOSI: sends data to slave
-        {"PIN_SCK", 52},   // SCK: clock signal
-        {"PIN_SS", 53}     // SS/SDA: slave select (must be OUTPUT)
+        {"PIN_MISO", 50, "SPI"},    // MISO: receives data from slave
+        {"PIN_MOSI", 51, "SPI"},    // MOSI: sends data to slave
+        {"PIN_SCK", 52,  "SPI"},    // SCK: clock signal
+        {"PIN_SS",  53,  "SPI"},    // SS/SDA: slave select (must be OUTPUT)
     };
 
     /*
      * 🔧 I2C / TWI: Two-wire communication
      */
     inline constexpr PinInfo I2C[] = {
-        {"PIN_SDA", 20},   // SDA: data line + INT3 interrupt
-        {"PIN_SCL", 21}    // SCL: clock line + INT2 interrupt
+        {"PIN_SDA", 20, "I2C"},    // SDA: data line + INT3 interrupt
+        {"PIN_SCL", 21, "I2C"},    // SCL: clock line + INT2 interrupt
     };
 
     /*
      * ⚡ External interrupts
      */
     inline constexpr PinInfo INTERRUPTS[] = {
-        {"INT_0", 2},    // INT0: button, sensor, etc.
-        {"INT_1", 3},    // INT1: button, sensor, etc.
-        {"INT_2", 21},   // INT2: shared with SCL
-        {"INT_3", 20},   // INT3: shared with SDA
-        {"INT_4", 19},   // INT4: shared with RX1
-        {"INT_5", 18}    // INT5: shared with TX1
+        {"INT_0", 2,  "INTERRUPTS"},    // INT0: button, sensor, etc.
+        {"INT_1", 3,  "INTERRUPTS"},    // INT1: button, sensor, etc.
+        {"INT_2", 21, "INTERRUPTS"},    // INT2: shared with SCL
+        {"INT_3", 20, "INTERRUPTS"},    // INT3: shared with SDA
+        {"INT_4", 19, "INTERRUPTS"},    // INT4: shared with RX1
+        {"INT_5", 18, "INTERRUPTS"},    // INT5: shared with TX1
     };
 
     /*
     * 🎯 ANALOG: Pins with analog input capability (ADC)
     */
     inline constexpr PinInfo ANALOG[] = {
-        {"PIN_ANALOG_A00", 54},   // A0: general analog input
-        {"PIN_ANALOG_A01", 55},   // A1: general analog input
-        {"PIN_ANALOG_A02", 56},   // A2: general analog input
-        {"PIN_ANALOG_A03", 57},   // A3: general analog input
-        {"PIN_ANALOG_A04", 58},   // A4: general analog input
-        {"PIN_ANALOG_A05", 59},   // A5: general analog input
-        {"PIN_ANALOG_A06", 60},   // A6: general analog input
-        {"PIN_ANALOG_A07", 61},   // A7: general analog input
-        {"PIN_ANALOG_A08", 62},   // A8: extended analog input (Mega only)
-        {"PIN_ANALOG_A90", 63},   // A9: extended analog input (Mega only)
-        {"PIN_ANALOG_A10", 64},   // A10: extended analog input (Mega only)
-        {"PIN_ANALOG_A11", 65},   // A11: extended analog input (Mega only)
-        {"PIN_ANALOG_A12", 66},   // A12: extended analog input (Mega only)
-        {"PIN_ANALOG_A13", 67},   // A13: extended analog input (Mega only)
-        {"PIN_ANALOG_A14", 68},   // A14: extended analog input (Mega only)
-        {"PIN_ANALOG_A15", 69}    // A15: extended analog input (Mega only)
+        {"PIN_ANALOG_A00", 54, "ANALOG"},   // A0: general analog input
+        {"PIN_ANALOG_A01", 55, "ANALOG"},   // A1: general analog input
+        {"PIN_ANALOG_A02", 56, "ANALOG"},   // A2: general analog input
+        {"PIN_ANALOG_A03", 57, "ANALOG"},   // A3: general analog input
+        {"PIN_ANALOG_A04", 58, "ANALOG"},   // A4: general analog input
+        {"PIN_ANALOG_A05", 59, "ANALOG"},   // A5: general analog input
+        {"PIN_ANALOG_A06", 60, "ANALOG"},   // A6: general analog input
+        {"PIN_ANALOG_A07", 61, "ANALOG"},   // A7: general analog input
+        {"PIN_ANALOG_A08", 62, "ANALOG"},   // A8: extended analog input (Mega only)
+        {"PIN_ANALOG_A90", 63, "ANALOG"},   // A9: extended analog input (Mega only)
+        {"PIN_ANALOG_A10", 64, "ANALOG"},   // A10: extended analog input (Mega only)
+        {"PIN_ANALOG_A11", 65, "ANALOG"},   // A11: extended analog input (Mega only)
+        {"PIN_ANALOG_A12", 66, "ANALOG"},   // A12: extended analog input (Mega only)
+        {"PIN_ANALOG_A13", 67, "ANALOG"},   // A13: extended analog input (Mega only)
+        {"PIN_ANALOG_A14", 68, "ANALOG"},   // A14: extended analog input (Mega only)
+        {"PIN_ANALOG_A15", 69, "ANALOG"},   // A15: extended analog input (Mega only)
     };
 
     /*
      * 🌀 PWM: Pins with pulse-width modulation capability
      */
     inline constexpr PinInfo PWM[] = {
-        {"PIN_PWM_02", 2},    // PWM + INT0: useful for buttons with interrupt
-        {"PIN_PWM_03", 3},    // PWM + INT1: servos or sensors with interrupt
-        {"PIN_PWM_04", 4},    // Standard PWM: LED, motor
-        {"PIN_PWM_05", 5},    // Standard PWM: LED, motor
-        {"PIN_PWM_06", 6},    // Standard PWM: LED, motor
-        {"PIN_PWM_07", 7},    // Standard PWM: LED, motor
-        {"PIN_PWM_08", 8},    // Standard PWM: LED, motor
-        {"PIN_PWM_09", 9},    // Standard PWM: LED, motor
-        {"PIN_PWM_10", 10},  // PWM + SPI SS: ideal as SPI output
-        {"PIN_PWM_11", 11},  // Standard PWM: LED, motor
-        {"PIN_PWM_12", 12},  // Standard PWM: LED, motor
-        {"PIN_PWM_44", 44},  // Extended PWM (Mega): large motors
-        {"PIN_PWM_45", 45},  // Extended PWM (Mega): large motors
-        {"PIN_PWM_46", 46}   // Extended PWM (Mega): large motors
+        {"PIN_PWM_02", 2,  "PWM"},    // PWM + INT0: useful for buttons with interrupt
+        {"PIN_PWM_03", 3,  "PWM"},    // PWM + INT1: servos or sensors with interrupt
+        {"PIN_PWM_04", 4,  "PWM"},    // Standard PWM: LED, motor
+        {"PIN_PWM_05", 5,  "PWM"},    // Standard PWM: LED, motor
+        {"PIN_PWM_06", 6,  "PWM"},    // Standard PWM: LED, motor
+        {"PIN_PWM_07", 7,  "PWM"},    // Standard PWM: LED, motor
+        {"PIN_PWM_08", 8,  "PWM"},    // Standard PWM: LED, motor
+        {"PIN_PWM_09", 9,  "PWM"},    // Standard PWM: LED, motor
+        {"PIN_PWM_10", 10, "PWM"},    // PWM + SPI SS: ideal as SPI output
+        {"PIN_PWM_11", 11, "PWM"},    // Standard PWM: LED, motor
+        {"PIN_PWM_12", 12, "PWM"},    // Standard PWM: LED, motor
+        {"PIN_PWM_44", 44, "PWM"},    // Extended PWM (Mega): large motors
+        {"PIN_PWM_45", 45, "PWM"},    // Extended PWM (Mega): large motors
+        {"PIN_PWM_46", 46, "PWM"}     // Extended PWM (Mega): large motors
     };
 
     /*
      * 🧩 GPIO: General-purpose digital pins
      */
     inline constexpr PinInfo GPIO[] = {
-        {"PIN_GPIO_13", 13},  // Digital: general input/output PWM13 'Note: this pin is digital' input/output 0
-        {"PIN_GPIO_22", 22},  // Digital: general input/output 1
-        {"PIN_GPIO_23", 23},  // Digital: general input/output 2
-        {"PIN_GPIO_24", 24},  // Digital: general input/output 3
-        {"PIN_GPIO_25", 25},  // Digital: general input/output 4
-        {"PIN_GPIO_26", 26},  // Digital: general input/output 5
-        {"PIN_GPIO_27", 27},  // Digital: general input/output 6
-        {"PIN_GPIO_28", 28},  // Digital: general input/output 7
-        {"PIN_GPIO_29", 29},  // Digital: general input/output 8
-        {"PIN_GPIO_30", 30},  // Digital: general input/output 9
-        {"PIN_GPIO_31", 31},  // Digital: general input/output 10
-        {"PIN_GPIO_32", 32},  // Digital: general input/output 11 
-        {"PIN_GPIO_33", 33},  // Digital: general input/output 12
-        {"PIN_GPIO_34", 34},  // Digital: general input/output 13
-        {"PIN_GPIO_35", 35},  // Digital: general input/output 14
-        {"PIN_GPIO_36", 36},  // Digital: general input/output 15
-        {"PIN_GPIO_37", 37},  // Digital: general input/output 16
-        {"PIN_GPIO_38", 38},  // Digital: general input/output 17
-        {"PIN_GPIO_39", 39},  // Digital: general input/output 18
-        {"PIN_GPIO_40", 40},  // Digital: general input/output 19 
-        {"PIN_GPIO_41", 41},  // Digital: general input/output 20
-        {"PIN_GPIO_42", 42},  // Digital: general input/output 21
-        {"PIN_GPIO_43", 43},  // Digital: general input/output 22
-        {"PIN_GPIO_44", 44},  // Digital: general input/output 23
-        {"PIN_GPIO_45", 45},  // Digital: general input/output 24
-        {"PIN_GPIO_46", 46},  // Digital: general input/output 25
-        {"PIN_GPIO_47", 47},  // Digital: general input/output 26
-        {"PIN_GPIO_48", 48},  // Digital: general input/output 27
-        {"PIN_GPIO_49", 49},  // Digital: general input/output 28
-        {"PIN_GPIO_50", 50},  // Digital: general input/output 29
-        {"PIN_GPIO_51", 51},  // Digital: general input/output 30
-        {"PIN_GPIO_52", 52},  // Digital: general input/output 31
-        {"PIN_GPIO_53", 53}   // Digital: general input/output 32
+        {"PIN_GPIO_13", 13, "GPIO"},  // Digital: general input/output PWM13 'Note: this pin is digital' input/output 0
+        {"PIN_GPIO_22", 22, "GPIO"},  // Digital: general input/output 1
+        {"PIN_GPIO_23", 23, "GPIO"},  // Digital: general input/output 2
+        {"PIN_GPIO_24", 24, "GPIO"},  // Digital: general input/output 3
+        {"PIN_GPIO_25", 25, "GPIO"},  // Digital: general input/output 4
+        {"PIN_GPIO_26", 26, "GPIO"},  // Digital: general input/output 5
+        {"PIN_GPIO_27", 27, "GPIO"},  // Digital: general input/output 6
+        {"PIN_GPIO_28", 28, "GPIO"},  // Digital: general input/output 7
+        {"PIN_GPIO_29", 29, "GPIO"},  // Digital: general input/output 8
+        {"PIN_GPIO_30", 30, "GPIO"},  // Digital: general input/output 9
+        {"PIN_GPIO_31", 31, "GPIO"},  // Digital: general input/output 10
+        {"PIN_GPIO_32", 32, "GPIO"},  // Digital: general input/output 11 
+        {"PIN_GPIO_33", 33, "GPIO"},  // Digital: general input/output 12
+        {"PIN_GPIO_34", 34, "GPIO"},  // Digital: general input/output 13
+        {"PIN_GPIO_35", 35, "GPIO"},  // Digital: general input/output 14
+        {"PIN_GPIO_36", 36, "GPIO"},  // Digital: general input/output 15
+        {"PIN_GPIO_37", 37, "GPIO"},  // Digital: general input/output 16
+        {"PIN_GPIO_38", 38, "GPIO"},  // Digital: general input/output 17
+        {"PIN_GPIO_39", 39, "GPIO"},  // Digital: general input/output 18
+        {"PIN_GPIO_40", 40, "GPIO"},  // Digital: general input/output 19 
+        {"PIN_GPIO_41", 41, "GPIO"},  // Digital: general input/output 20
+        {"PIN_GPIO_42", 42, "GPIO"},  // Digital: general input/output 21
+        {"PIN_GPIO_43", 43, "GPIO"},  // Digital: general input/output 22
+        {"PIN_GPIO_44", 44, "GPIO"},  // Digital: general input/output 23
+        {"PIN_GPIO_45", 45, "GPIO"},  // Digital: general input/output 24
+        {"PIN_GPIO_46", 46, "GPIO"},  // Digital: general input/output 25
+        {"PIN_GPIO_47", 47, "GPIO"},  // Digital: general input/output 26
+        {"PIN_GPIO_48", 48, "GPIO"},  // Digital: general input/output 27
+        {"PIN_GPIO_49", 49, "GPIO"},  // Digital: general input/output 28
+        {"PIN_GPIO_50", 50, "GPIO"},  // Digital: general input/output 29
+        {"PIN_GPIO_51", 51, "GPIO"},  // Digital: general input/output 30
+        {"PIN_GPIO_52", 52, "GPIO"},  // Digital: general input/output 31
+        {"PIN_GPIO_53", 53, "GPIO"},  // Digital: general input/output 32
     };
 
     /*
@@ -161,6 +161,10 @@ namespace Pins {
     constexpr size_t NUM_SPI        = sizeof(SPI) / sizeof(SPI[0]);
     constexpr size_t NUM_I2C        = sizeof(I2C) / sizeof(I2C[0]);
     constexpr size_t NUM_INTERRUPTS = sizeof(INTERRUPTS) / sizeof(INTERRUPTS[0]);
+
+    /*
+     * Enum PinFamily: Categorizes pins by their functional group
+     */
 }
 
 
@@ -171,35 +175,14 @@ namespace Pins {
  * Implemented in pins.cpp
  */
 
-// Checks if a specific pin exists in the GPIO array
-uint8_t pinNameToNumber_GPIO(const char* name);
+// Return pin number
+uint8_t pinNumber(const PinInfo pin);
+// Return pin name 
+const char* pinName(const PinInfo pin);
+// Return pin family
+const char* pinFamily(const PinInfo pin);
 
-// Checks if a specific pin exists in the PWM array
-uint8_t pinNameToNumber_PWM(const char* name);
 
-// Checks if a specific pin exists in the ANALOG array
-uint8_t pinNameToNumber_ANALOG(const char* name);
-
-// Converts a PWM pin name (string) to its physical number
-uint8_t pinNameToNumber_PWM(const char* name);
-
-// Converts an ANALOG pin name (string) to its physical number
-uint8_t pinNameToNumber_ANALOG(const char* name);
-
-// Converts an Interrupt pin name (string) to its physical number
-uint8_t pinNameToNumber_Interrupt(const char* name);
-
-// Converts an I2C pin name (string) to its physical number
-uint8_t pinNameToNumber_I2C(const char* name);
-
-// Converts an SPI pin name (string) to its physical number
-uint8_t pinNameToNumber_SPI(const char* name);
-
-// Converts a UART RX pin name (string) to its physical number
-uint8_t pinNameToNumber_UART_RX(const char* name);
-
-// Converts a UART TX pin name (string) to its physical number
-uint8_t pinNameToNumber_UART_TX(const char* name);
 
 
 /*

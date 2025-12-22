@@ -234,3 +234,31 @@ void showMsgPrinLine(char c, int length) {
     }
     Serial.println();
   }
+
+
+/**
+ * @brief Prints firmware version details to the serial monitor.
+ * 
+ * Displays firmware and application information (version, name, date, author) 
+ * defined by macros in a clear format for easy verification.
+ */
+void printVersion(const char* fwVersion,
+                  const char* fwName,
+                  const char* fwDate,
+                  const char* fwAuthor,
+                  const char* appVersion,
+                  const char* appName,
+                  const char* appDate) {
+    standardMessage("Firmware Version Information",
+                     __FILE__,
+                     __FUNCTION__,
+                     __DATE__,
+                     __TIME__);
+    Serial.print("Firmware Version: "); Serial.println(fwVersion);
+    Serial.print("Firmware Name: ");    Serial.println(fwName);
+    Serial.print("Firmware Date: ");    Serial.println(fwDate);
+    Serial.print("Firmware Author: ");  Serial.println(fwAuthor);
+    Serial.print("App Version: ");      Serial.println(appVersion);
+    Serial.print("App Name: ");         Serial.println(appName);
+    Serial.print("App Date: ");         Serial.println(appDate);
+    }

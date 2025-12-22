@@ -177,75 +177,14 @@ void diagnosePWM() {
  * Implemented in pins.cpp
  */
 
-uint8_t pinNameToNumber_GPIO(const char*  name){
-    for(const auto& gpio : Pins::GPIO){
-        if (strcmp(gpio.name, name) == 0){
-            return gpio.number;
-        }
-    }
-    return 0XFF; 
+uint8_t pinNumber(const PinInfo pin) {
+    return pin.number;
 }
 
-uint8_t pinNameToNumber_PWM(const char*  name){
-    for(const auto& pwm : Pins::PWM){
-        if (strcmp(pwm.name, name) == 0){
-            return pwm.number;
-        }
-    }
-    return 0XFF; 
+const char* pinName(const PinInfo pin) {
+    return pin.name;
 }
 
-uint8_t pintNameToNumber_Analog(const char*  name){
-    for(const auto& analog : Pins::ANALOG){
-        if (strcmp(analog.name, name) == 0){
-            return analog.number;
-        }
-    }
-    return 0XFF; 
+const char* pinFamily(const PinInfo pin) {
+    return pin.family;
 }
-
-uint8_t pinNameToNumber_Interrupt(const char*  name){
-    for(const auto& interrupt : Pins::INTERRUPTS){
-        if (strcmp(interrupt.name, name) == 0){
-            return interrupt.number;
-        }
-    }
-    return 0XFF; 
-}
-
-uint8_t pinNameToNumber_I2C(const char*  name){
-    for(const auto& i2c : Pins::I2C){
-        if (strcmp(i2c.name, name) == 0){
-            return i2c.number;
-        }
-    }
-    return 0XFF; 
-}
-
-uint8_t pinNameToNumber_SPI(const char*  name){
-    for(const auto& spi : Pins::SPI){
-        if (strcmp(spi.name, name) == 0){
-            return spi.number;
-        }
-    }
-    return 0XFF; 
-}
-
-uint8_t pinNameToNumber_UART_RX(const char*  name){
-    for(const auto& uart_rx : Pins::UART_RX){
-        if (strcmp(uart_rx.name, name) == 0){
-            return uart_rx.number;
-        }
-    }
-    return 0XFF; 
-}
-
-uint8_t pinNameToNumber_UART_TX(const char*  name){
-    for(const auto& uart_tx : Pins::UART_TX){
-        if (strcmp(uart_tx.name, name) == 0){
-            return uart_tx.number;
-        }
-    }
-    return 0XFF; 
-}
-

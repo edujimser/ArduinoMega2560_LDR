@@ -115,4 +115,19 @@ void standardErrorMessage(const char* message, const char* file, const char* fun
  */
 void showConfigurationMessage(const configuracionMain& configuration);
 
+
+/**
+ * @brief Prints firmware version details to the serial monitor.
+ * 
+ * Displays firmware and application information (version, name, date, author) 
+ * defined by macros in a clear format for easy verification.
+ */
+void printVersion(const char* fwVersion,
+                  const char* fwName,
+                  const char* fwDate,
+                  const char* fwAuthor,
+                  const char* appVersion,
+                  const char* appName,
+                  const char* appDate);
+
 #endif // MESSAGE_RELEASE_H
