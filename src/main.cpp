@@ -70,22 +70,22 @@ void loop() {
     // ANALOG: Pins with analog input capability (ADC)
     // Variable                                | Pin array                              | Descripción             | Set pinMode   
     // ----------------------------------------|----------------------------------------|----------------------------------------------------------------
-    [[maybe_unused]] PinInfo analog0  =         Pins::ANALOG[0];                         /* A0    → pin 54*/        pinMode(analog0.number,  OUTPUT);
-    [[maybe_unused]] PinInfo analog1  =         Pins::ANALOG[1];                         /* A1    → pin 55*/        pinMode(analog1.number,  OUTPUT);
-    [[maybe_unused]] PinInfo analog2  =         Pins::ANALOG[2];                         /* A2    → pin 56*/        pinMode(analog2.number,  OUTPUT);
-    [[maybe_unused]] PinInfo analog3  =         Pins::ANALOG[3];                         /* A3    → pin 57*/        pinMode(analog3.number,  OUTPUT);
-    [[maybe_unused]] PinInfo analog4  =         Pins::ANALOG[4];                         /* A4    → pin 58*/        pinMode(analog4.number,  OUTPUT);
-    [[maybe_unused]] PinInfo analog5  =         Pins::ANALOG[5];                         /* A5    → pin 59*/        pinMode(analog5.number,  OUTPUT);
-    [[maybe_unused]] PinInfo analog6  =         Pins::ANALOG[6];                         /* A6    → pin 60*/        pinMode(analog6.number,  OUTPUT);
-    [[maybe_unused]] PinInfo analog7  =         Pins::ANALOG[7];                         /* A7    → pin 61*/        pinMode(analog7.number,  OUTPUT);
-    [[maybe_unused]] PinInfo analog8  =         Pins::ANALOG[8];                         /* A8    → pin 62*/        pinMode(analog8.number,  OUTPUT);
-    [[maybe_unused]] PinInfo analog9  =         Pins::ANALOG[9];                         /* A9    → pin 63*/        pinMode(analog9.number,  OUTPUT);
-    [[maybe_unused]] PinInfo analog10 =         Pins::ANALOG[10];                        /* A10   → pin 64*/        pinMode(analog10.number, OUTPUT);
-    [[maybe_unused]] PinInfo analog11 =         Pins::ANALOG[11];                        /* A11   → pin 65*/        pinMode(analog11.number, OUTPUT);
-    [[maybe_unused]] PinInfo analog12 =         Pins::ANALOG[12];                        /* A12   → pin 66*/        pinMode(analog12.number, OUTPUT);
-    [[maybe_unused]] PinInfo analog13 =         Pins::ANALOG[13];                        /* A13   → pin 67*/        pinMode(analog13.number, OUTPUT);
-    [[maybe_unused]] PinInfo analog14 =         Pins::ANALOG[14];                        /* A14   → pin 68*/        pinMode(analog14.number, OUTPUT);
-    [[maybe_unused]] PinInfo analog15 =         Pins::ANALOG[15];                        /* A15   → pin 69*/        pinMode(analog15.number, OUTPUT);
+    [[maybe_unused]] PinInfo analog0  =         Pins::ANALOG[0];                         /* A0    → pin 54*/        pinMode(analog0.number,  INPUT);
+    [[maybe_unused]] PinInfo analog1  =         Pins::ANALOG[1];                         /* A1    → pin 55*/        pinMode(analog1.number,  INPUT);
+    [[maybe_unused]] PinInfo analog2  =         Pins::ANALOG[2];                         /* A2    → pin 56*/        pinMode(analog2.number,  INPUT);
+    [[maybe_unused]] PinInfo analog3  =         Pins::ANALOG[3];                         /* A3    → pin 57*/        pinMode(analog3.number,  INPUT);
+    [[maybe_unused]] PinInfo analog4  =         Pins::ANALOG[4];                         /* A4    → pin 58*/        pinMode(analog4.number,  INPUT);
+    [[maybe_unused]] PinInfo analog5  =         Pins::ANALOG[5];                         /* A5    → pin 59*/        pinMode(analog5.number,  INPUT);
+    [[maybe_unused]] PinInfo analog6  =         Pins::ANALOG[6];                         /* A6    → pin 60*/        pinMode(analog6.number,  INPUT);
+    [[maybe_unused]] PinInfo analog7  =         Pins::ANALOG[7];                         /* A7    → pin 61*/        pinMode(analog7.number,  INPUT);
+    [[maybe_unused]] PinInfo analog8  =         Pins::ANALOG[8];                         /* A8    → pin 62*/        pinMode(analog8.number,  INPUT);
+    [[maybe_unused]] PinInfo analog9  =         Pins::ANALOG[9];                         /* A9    → pin 63*/        pinMode(analog9.number,  INPUT);
+    [[maybe_unused]] PinInfo analog10 =         Pins::ANALOG[10];                        /* A10   → pin 64*/        pinMode(analog10.number, INPUT);
+    [[maybe_unused]] PinInfo analog11 =         Pins::ANALOG[11];                        /* A11   → pin 65*/        pinMode(analog11.number, INPUT);
+    [[maybe_unused]] PinInfo analog12 =         Pins::ANALOG[12];                        /* A12   → pin 66*/        pinMode(analog12.number, INPUT);
+    [[maybe_unused]] PinInfo analog13 =         Pins::ANALOG[13];                        /* A13   → pin 67*/        pinMode(analog13.number, INPUT);
+    [[maybe_unused]] PinInfo analog14 =         Pins::ANALOG[14];                        /* A14   → pin 68*/        pinMode(analog14.number, INPUT);
+    [[maybe_unused]] PinInfo analog15 =         Pins::ANALOG[15];                        /* A15   → pin 69*/        pinMode(analog15.number, INPUT);
     // PWM: Pins with pulse-width modulation capability
     // Variable                                | Pin array                              | Descripción             | Set pinMode   
     // ----------------------------------------|----------------------------------------|----------------------------------------------------------------
