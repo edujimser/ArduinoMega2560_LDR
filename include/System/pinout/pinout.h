@@ -166,14 +166,6 @@ namespace Pins {
 
  
 /**
- * @brief Initializes all system pins according to the predefined pinout tables.
- *
- * Loads pin information from the pinout arrays and configures the required pins
- * (ANALOG, PWM, GPIO) as OUTPUT during initialization.
- */
-void initPins();
-
-/**
  * @brief Returns the numeric Arduino pin associated with a PinInfo object.
  *
  * @param pin  PinInfo structure containing pin metadata.
