@@ -8,6 +8,7 @@
 #include "system/diagnostics/diagnosticsEEPROM.h"
 #include "system/config/config.h"                                   // System configuration parameters
 #include "system/pinout/pinout.h"                                   // Pinout definitions
+#include "LDR/ldr.h"                                                // LDR sensor class
 
 // Firmware metadata =============================================================================================================================
 #define FIRMWARE_VERSION                 "1.0.B"                                    // Firmware version
