@@ -6,11 +6,11 @@
 
 class LDR{
     private:
-        PinInfo pin;
+        const PinInfo pin;
     public:
-        LDR(PinInfo pin) : pin(pin) {}
-    
-    int read();
+        explicit LDR(const PinInfo& pin);
+
+        int read(unsigned long delayTime);
 
 };
 

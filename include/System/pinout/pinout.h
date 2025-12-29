@@ -211,7 +211,7 @@ bool isValidPWM(const PinInfo pin);
  * @param pin  PinInfo structure containing pin metadata.
  * @return true if the pin is a valid ANALOG pin, false otherwise.
  */
-bool isValidAnalog(const PinInfo pin);
+bool isValidAnalog(const PinInfo& pin);
 
 
 /* -------------------------------------------------------------------------- */

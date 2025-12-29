@@ -142,8 +142,8 @@ void loop() {
     [[maybe_unused]] PinInfo gpio32   =         Pins::GPIO[32];                          /* GPIO53 → pin 53 */      pinMode(gpio32.number, OUTPUT);
 
     LDR sensorLED(analog0);                                    // Create LDR sensor object on analog pin A0 
-    Serial.print("LDR Reading: ");                                 // Print labe    l
-    Serial.println(sensorLED.read());                              // Print LDR reading
-    delay(2000);                                                // Wait for 2 seconds before next reading
+    
+    Serial.println(sensorLED.read(2000));                              // Print LDR reading
+                                                // Wait for 2 seconds before next reading
 
 } 
